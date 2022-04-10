@@ -1,0 +1,37 @@
+@baseUrl = http://localhost:8000/api/v1
+
+# получаем список курсов
+GET {{baseUrl}}/courses/
+Content-Type: application/json
+
+###
+
+# получаем курс по id
+GET {{baseUrl}}/courses/?id=3
+Content-Type: application/json
+
+###
+
+# получаем курс по названию
+GET {{baseUrl}}/courses/?name=Python
+Content-Type: application/json
+
+###
+
+#обнавляем курс
+PATCH {{baseUrl}}/courses/3/
+Content-Type: application/json
+
+{
+  "name": "PHP + Laravel"
+}
+
+###
+
+#удаляем курс
+DELETE {{baseUrl}}/courses/4/
+Content-Type: application/json
+
+
+###
+

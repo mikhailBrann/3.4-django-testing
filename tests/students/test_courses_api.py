@@ -37,14 +37,14 @@ def test_first_course(client, student_factory, course_factory):
     course = course_factory(name='Python', students=students)
 
     #Act
-    response = client.get(f"{base_path}/courses/?id={course.id}")
+    response = client.get(f"{base_path}/courses/{course.id}/")
     data = response.json()
 
     #Assert
     assert response.status_code == 200
-    assert data[0]['id'] == course.id
-    assert data[0]['name'] == course.name
-    assert len(data[0]['students']) == len(course.students.all())
+    assert data['id'] == course.id
+    assert data['name'] == course.name
+    assert len(data['students']) == len(course.students.all())
 
 
 # проверка получения списка курсов
